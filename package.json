@@ -1,0 +1,28 @@
+{
+  "name": "@comgunner/antigravity-studio",
+  "version": "1.0.2",
+  "description": "AI-powered Technical Analysis and Multi-Account Image Generation Studio",
+  "main": "bin/cli.js",
+  "bin": {
+    "antigravity-studio": "bin/cli.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comgunner/antigravity-studio.git"
+  },
+  "keywords": [
+    "ai",
+    "trading",
+    "gemini",
+    "antigravity",
+    "crypto",
+    "forex",
+    "image-generation"
+  ],
+  "author": "comgunner",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,81 @@
+# ─── Credentials & Secrets (CRITICAL) ─────────────────
+.env
+.env.*
+*.key
+*.pem
+auth.json
+antigravity_config.json
+
+# ─── Python & Environment ────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ─── Testing & Build ─────────────────────────────────
+test/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+
+# ─── macOS & OS Artifacts ─────────────────────────────
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.apdisk
+
+# ─── Generated Output ────────────────────────────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+logo.png
+!logo/*.png
+assets/
+summary_*.json
+temp_img/
+
+# ─── IDE & Tools ─────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.qwen/
+.git/
+.gitignore
+
+# ─── Miscellaneous ───────────────────────────────────
+cooldown_por_cuenta.md
