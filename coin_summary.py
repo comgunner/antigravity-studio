@@ -112,7 +112,7 @@ def get_gemini_analysis(summary_data: Dict[str, Any]) -> str:
     
     try:
         result = subprocess.run(
-            ["python3", "antigravity_cli.py", "chat", prompt],
+            ["python3", "antigravity_cli.py", "chat", prompt, "--quiet"],
             capture_output=True,
             text=True,
             timeout=30

@@ -1,6 +1,6 @@
 {
   "name": "@comgunner/antigravity-studio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AI-powered Technical Analysis and Multi-Account Image Generation Studio",
   "main": "bin/cli.js",
   "bin": {

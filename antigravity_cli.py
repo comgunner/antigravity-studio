@@ -157,7 +157,42 @@ def cmd_chat(args):
     )
     
     if response:
-        print(response)
+        # Sanitize and format the response
+        try:
+            # The API returns a nested 'response' object
+            inner_res = response.get("response", response)
+            candidates = inner_res.get("candidates", [])
+            
+            if not candidates:
+                # If it's a direct string or unknown format
+                print(response if isinstance(response, str) else "\n⚠️ No candidates found in response.")
+                return
+
+            candidate = candidates[0]
+            content = candidate.get("content", {})
+            parts = content.get("parts", [])
+            
+            if not args.quiet:
+                print(f"\n--- {args.model} ---")
+
+            for part in parts:
+                # Show thoughts (Gemini 3 Flash/Pro)
+                # 'thought' or 'thoughtSignature' (we want the content, not the signature)
+                if "thought" in part and not args.quiet:
+                    print(f"\033[3m\033[90mThought: {part['thought']}\033[0m\n")
+                
+                # Show main text
+                if "text" in part:
+                    print(part["text"])
+
+            if not args.quiet:
+                print("-" * (len(args.model) + 8))
+        except Exception as e:
+            # Fallback for unexpected structures
+            if isinstance(response, dict) and "text" in response:
+                print(response["text"])
+            else:
+                print(response)
 
 
 def cmd_img(args):
@@ -359,6 +394,7 @@ Summary Examples:
     p_chat.add_argument("--model", default="gemini-3-flash", help="Model to use (default: gemini-3-flash)")
     p_chat.add_argument("--max-tokens", type=int, default=2048, help="Max tokens in response (default: 2048)")
     p_chat.add_argument("--temperature", type=float, default=0.7, help="Temperature 0-1 (default: 0.7)")
+    p_chat.add_argument("--quiet", action="store_true", help="Only output the response text, no headers or thoughts")
     p_chat.set_defaults(func=cmd_chat)
 
     # img
